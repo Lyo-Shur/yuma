@@ -1,4 +1,4 @@
-from mysqlmapper.mysql.mvc.holder import MVCHolder
+from mysqlmapper.manager.mvc.holder import MVCHolder
 
 from yuma.model import Permission, PermissionGroup
 from yuma.permission import PermissionHolder
