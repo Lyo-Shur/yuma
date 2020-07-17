@@ -1,3 +1,6 @@
+from typing import Tuple, List
+
+
 class Permission:
     """
     Permission entity
@@ -35,7 +38,7 @@ class PermissionGroup:
     # Permissions id list
     _ids = []
 
-    def __init__(self, key):
+    def __init__(self, key: str):
         """
         Initializing PermissionGroup
         :param key: Group key
@@ -51,7 +54,7 @@ class PermissionGroup:
         self._ids.append(permission_id)
         return self
 
-    def add_ids(self, permission_ids):
+    def add_ids(self, permission_ids: Tuple[int] or List[int]):
         """
         Add id list to permission group
         :param permission_ids: permission_ids
@@ -60,7 +63,7 @@ class PermissionGroup:
         self._ids = self._ids + permission_ids
         return self
 
-    def have(self, permission_id):
+    def have(self, permission_id: int) -> bool:
         """
         Check if there is an ID entered in the group
         :param permission_id: permission_id

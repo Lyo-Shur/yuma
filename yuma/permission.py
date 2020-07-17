@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 from yuma.model import Permission, PermissionGroup
 
 
@@ -56,7 +58,7 @@ class PermissionHolder:
                 }
         return next_nodes
 
-    def get_permission_by_id(self, permission_id: int):
+    def get_permission_by_id(self, permission_id: int) -> Permission:
         """
         Get permission entity by permission_id
         :param permission_id: permission_id
@@ -64,7 +66,7 @@ class PermissionHolder:
         """
         return self._id_map[permission_id]
 
-    def get_id_path_by_key_path(self, key_path: str):
+    def get_id_path_by_key_path(self, key_path: str) -> Tuple[int] or List[int]:
         """
         Get id_path by key_path
         :param key_path: key split by :
@@ -83,7 +85,7 @@ class PermissionHolder:
             current_map = node["next"]
         return ids
 
-    def verification(self, group_key, key_path, callback=lambda arg: True, **kwargs):
+    def verification(self, group_key, key_path, callback=lambda arg: True, **kwargs) -> bool:
         # group_key non-existent
         if group_key not in self._group_map:
             return False
